@@ -4,15 +4,12 @@ import {
   View
 } from 'react-native';
 import styles from './Styles';
+import DemoScreen from './components/DemoScreen';
 
 export default class App extends Component<{}> {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-      </View>
+      <DemoScreen/>
     );
   }
 }

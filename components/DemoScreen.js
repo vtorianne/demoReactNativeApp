@@ -15,7 +15,7 @@ export default class DemoScreen extends Component<{}> {
   constructor(props){
     super(props);
     this.state = {
-      selected: 'List'
+      selected: 'Text'
     }
   }
 
@@ -46,13 +46,13 @@ export default class DemoScreen extends Component<{}> {
         </View>
         <View style={{flex: 2, flexDirection: 'row'}}>
           <View style={{margin: 10}}>
-            <Button onPress={()=>this.setState({selected: 'List'})} title="List"/>
+            <Button onPress={()=>this.setState({selected: 'Text'})} title="Text"/>
           </View>
           <View style={{margin: 10}}>
             <Button onPress={()=>this.setState({selected: 'Image'})} title="Image"/>
           </View>
           <View style={{margin: 10}}>
-            <Button onPress={()=>this.setState({selected: 'Text'})} title="Text"/>
+            <Button onPress={()=>this.setState({selected: 'List'})} title="List"/>
           </View>
         </View>
       </View>

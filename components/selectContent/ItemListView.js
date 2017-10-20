@@ -9,26 +9,25 @@ export default class ItemListView extends Component<{}> {
   constructor(props){
     super(props);
     this.state = {
-      data: [{key: 'a'}, {key: 'b'}]
+      data: [{key: 'list item 1'}, {key: 'list item 2'}, {key: 'list item 3'}]
     }
   }
 
-  componentDidMount(){
-
-  }
 
   renderItem({item}){
     return (
-      <Text>{item.key}</Text>
-    );
+      <View style={{margin: 5, padding: 10, borderRadius: 5, backgroundColor: '#1e90ff'}}>
+        <Text style={{color: 'white'}}>{item.key}</Text>
+      </View>
+    )
   }
 
   render() {
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1, margin: 10}}>
           <FlatList
-            data={[{key: 'a'}, {key: 'b'}]}
-            renderItem={this.renderItem.bind(this)}
+            data={this.state.data}
+            renderItem={this.renderItem}
           />
       </View>
     );

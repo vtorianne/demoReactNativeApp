@@ -13,7 +13,7 @@ export default class TextView extends Component<{}> {
     return (
       <View style={{flex: 1, padding: 10}}>
       <Image
-        source={require('../../images/react.png')}
+        source={require('../../Images/react.png')}
         style={{width: 350, height: 350}}
       />
       </View>

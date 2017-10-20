@@ -2,27 +2,32 @@ import React, { Component } from 'react';
 import {
   Text,
   View,
-  Button
+  Button,
+  Dimensions
 } from 'react-native';
 import Header from './Header';
+import ItemListView from './selectContent/ItemListView';
+import ImageView from './selectContent/ImageView';
+import TextView from './selectContent/TextView';
+const { width, height } = Dimensions.get('window');
 
 export default class DemoScreen extends Component<{}> {
   constructor(props){
     super(props);
     this.state = {
-      selected: 1
+      selected: 'List'
     }
   }
 
   renderView(){
-    if(this.state.selected == 1){
-      return (<Text>a</Text>);
+    if(this.state.selected == 'List'){
+      return (<ItemListView/>);
     }
-    else if(this.state.selected == 2){
-      return (<Text>b</Text>);
+    else if(this.state.selected == 'Image'){
+      return (<ImageView/>);
     }
-    else if(this.state.selected == 3){
-      return (<Text>c</Text>);
+    else if(this.state.selected == 'Text'){
+      return (<TextView/>);
     }
     else {
       return (null);
@@ -33,11 +38,23 @@ export default class DemoScreen extends Component<{}> {
     var SelectedView = this.renderView();
     return (
       <View style={styles.container}>
-        <Header headerText={"Hello World! :)"}/>
-        {SelectedView}
-        <Button onPress={()=>this.setState({selected: 1})} title="1"/>
-        <Button onPress={()=>this.setState({selected: 2})} title="2"/>
-        <Button onPress={()=>this.setState({selected: 3})} title="3"/>
+        <View style={{flex: 1, marginTop: 23, backgroundColor: '#1e90ff', width: width,  height: height*0.1}}>
+          <Header headerText={"Hello World! :)"}/>
+        </View>
+        <View style={{flex: 6, margin: 20}}>
+          {SelectedView}
+        </View>
+        <View style={{flex: 2, flexDirection: 'row'}}>
+          <View style={{margin: 10}}>
+            <Button onPress={()=>this.setState({selected: 'List'})} title="List"/>
+          </View>
+          <View style={{margin: 10}}>
+            <Button onPress={()=>this.setState({selected: 'Image'})} title="Image"/>
+          </View>
+          <View style={{margin: 10}}>
+            <Button onPress={()=>this.setState({selected: 'Text'})} title="Text"/>
+          </View>
+        </View>
       </View>
     );
   }

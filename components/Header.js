@@ -11,8 +11,8 @@ export default class Header extends Component<{}> {
 
   render() {
     return (
-      <View>
-        <Text style={styles.welcome}>
+      <View style={{flex: 1, justifyContent: 'center'}}>
+        <Text style={styles.headerText}>
           {this.props.headerText}
         </Text>
       </View>
